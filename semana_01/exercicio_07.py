@@ -7,7 +7,6 @@ numeros = [15, 3, 28, 7, 42, 9, 18]
 contador_elementos = 0
 maior_numero = numeros[0]
 menor_numero = numeros[0]
-soma_numeros = 0
 
 for numero in numeros:
     if numero > maior_numero:
