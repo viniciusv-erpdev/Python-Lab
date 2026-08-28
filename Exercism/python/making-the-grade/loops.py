@@ -18,7 +18,7 @@ def round_scores(student_scores):
     return scores_rounded
 
 
-def count_failed_students(student_scores=[90,40,55,70,30,25,80,95,38,40]):
+def count_failed_students(student_scores):
     """Count the number of failing students out of the group provided.
 
     Parameters:
@@ -27,17 +27,17 @@ def count_failed_students(student_scores=[90,40,55,70,30,25,80,95,38,40]):
     Returns:
         int: The count of student scores at or below 40.
     """
-    counter = 0
 
-    for scores in student_scores:
-        if scores < 40:
-            counter += 1
+    failed_students_counter = 0
+
+    for score in student_scores:
+        if score <= 40:
+            failed_students_counter += 1
+
+    return failed_students_counter
 
 
-    pass
-
-
-def above_threshold(student_scores=[90,40,55,70,30,68,70,75,83,96], threshold=75):
+def above_threshold(student_scores, threshold):
     """Determine how many of the provided student scores were 'the best' based on the provided threshold.
 
     Parameters:
@@ -48,16 +48,16 @@ def above_threshold(student_scores=[90,40,55,70,30,68,70,75,83,96], threshold=75
         list[int]: Integer scores that are at or above the "best" threshold.
     """
 
-    above_threshold_scores = []
+    above_threshold = []
 
     for score in student_scores:
-        if score > threshold:
-            above_threshold_scores.append(score)
+        if score >= threshold:
+            above_threshold.append(score)
 
-    pass
+    return above_threshold
 
 
-def letter_grades(highest = 100):
+def letter_grades(highest):
     """Create a list of grade thresholds based on the provided highest grade.
 
     Parameters:
@@ -74,16 +74,22 @@ def letter_grades(highest = 100):
             86 <= "A" <= 100
     """
 
-    increment = ((highest - 40)/4)
-    scores_initial = 40
-    scores = []
+    increment = round(((highest - 40)/4))
+    min = 41 + increment
+    letter_grades_list = []
+    i = 0
 
-    for i in range(4):
-        scores_initial += increment
-        scores.append(scores_initial)
+    while i < 4:
 
-    pass
+        if i == 0:
+            letter_grades_list.append(41)
+            i += 1
+        else:
+            letter_grades_list.append(min)
+            min += increment
+            i += 1
 
+    return letter_grades_list
 
 def student_ranking(student_scores, student_names):
     """Organize the student's rank, name, and grade information in descending order.
