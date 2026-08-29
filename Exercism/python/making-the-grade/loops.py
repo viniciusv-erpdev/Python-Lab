@@ -102,7 +102,18 @@ def student_ranking(student_scores, student_names):
         list[str]: Strings in format ["<rank>. <student name>: <score>"].
     """
 
-    pass
+    list_names_scores = []
+    i = 0
+    j = 0
+
+    for i in range(len(student_scores)):
+        j += 1
+        score = str(student_scores[i])
+        name = student_names[i]
+        list_names_scores.append(str(j) + "." + " " + name + ":" + " " + score)
+        i += 1
+
+    return list_names_scores
 
 
 def perfect_score(student_info):

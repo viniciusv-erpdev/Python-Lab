@@ -47,7 +47,13 @@ def list_contains_round(rounds, number):
         bool: Was the round played?
     """
 
-    pass
+    contains_round = False
+
+    for round in rounds:
+        if round == number:
+            contains_round = True
+
+    return contains_round
 
 
 def card_average(hand):
@@ -60,7 +66,9 @@ def card_average(hand):
         float: The average value of the cards in the hand.
     """
 
-    pass
+    average = sum(hand)/len(hand)
+
+    return average
 
 
 def approx_average_is_average(hand):
@@ -73,7 +81,20 @@ def approx_average_is_average(hand):
         bool: Does one of the approximate averages equal the `true average`?
     """
 
-    pass
+    actual_average = sum(hand)/len(hand)
+
+    average_first_last = ((hand[0] + hand[len(hand) - 1])/2)
+
+    list_middle = len(hand) // 2
+
+    middle_card = hand[list_middle]
+
+    if average_first_last == actual_average or middle_card == actual_average:
+        is_approximate_averages_equal = True
+    else:
+        is_approximate_averages_equal = False
+
+    return is_approximate_averages_equal
 
 
 def average_even_is_average_odd(hand):
