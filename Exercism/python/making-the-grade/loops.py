@@ -126,4 +126,18 @@ def perfect_score(student_info):
         list: First `[<student name>, 100]` found OR `[]` if no student score of 100 is found.
     """
 
-    pass
+    studant_data = []
+    perfect_studant_data = []
+    i = 0
+
+    for info in student_info:
+
+        if i <= (len(student_info) - 1):
+
+            if info[1] == 100:
+                perfect_studant_data = info
+                break
+
+        i += 1  
+
+    return perfect_studant_data
