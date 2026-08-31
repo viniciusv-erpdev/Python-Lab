@@ -107,7 +107,24 @@ def average_even_is_average_odd(hand):
         bool: Are the even and odd averages equal?
     """
 
-    pass
+    is_avarage_even_equal_avarage_odd = False
+    even_index_cards = []
+    odd_index_cards = []    
+    i = 0
+
+    for item in hand:
+
+        i += 1
+        if i % 2 == 0:
+            even_index_cards.append(item)
+        else:
+            odd_index_cards.append(item)
+
+    if sum(even_index_cards)/len(even_index_cards) == sum(odd_index_cards)/len(odd_index_cards):
+        is_avarage_even_equal_avarage_odd = True
+
+
+    return is_avarage_even_equal_avarage_odd
 
 
 def maybe_double_last(hand):
