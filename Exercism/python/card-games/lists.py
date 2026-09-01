@@ -137,4 +137,12 @@ def maybe_double_last(hand):
         list: The hand with Jacks (if present) value doubled.
     """
 
-    pass
+    hold_jack = hand[len(hand) - 1]
+
+    if hand[len(hand) - 1] == 11:
+        hold_jack *= 2
+        hand.pop()
+        hand.append(hold_jack)
+
+
+    return hand
