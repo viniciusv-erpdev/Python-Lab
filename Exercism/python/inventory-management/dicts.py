@@ -56,7 +56,11 @@ def decrement_items(inventory, items):
         dict: Updated inventory with items decremented.
     """
 
-    pass
+    for item in items:
+        if item in inventory and inventory[item] > 0:
+            inventory[item] -= 1
+
+    return inventory
 
 
 def remove_item(inventory, item):
@@ -69,8 +73,10 @@ def remove_item(inventory, item):
     Returns:
         dict: Updated inventory with item removed. Current inventory if item does not match.
     """
+    if item in inventory:
+        inventory.pop(item)
 
-    pass
+    return inventory
 
 
 def list_inventory(inventory):
@@ -83,4 +89,11 @@ def list_inventory(inventory):
         list[tuple]: List of key, value tuples from the inventory dictionary.
     """
 
-    pass
+    inventory_tuples = []
+
+    for item, quantity in inventory.items():
+
+        if inventory[item] != 0:
+            inventory_tuples.append((item, quantity))
+
+    return inventory_tuples
