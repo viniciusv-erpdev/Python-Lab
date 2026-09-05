@@ -84,4 +84,11 @@ def adjective_to_verb(sentence, index):
 
     """
 
-    pass
+    verbal_form = sentence.split()[index]
+
+    if verbal_form[-1] == '.':
+        verbal_form = verbal_form[:-1]
+
+    verbal_suffix = 'en'
+
+    return ''.join([verbal_form, verbal_suffix])
