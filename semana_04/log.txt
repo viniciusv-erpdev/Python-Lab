@@ -1,0 +1,7 @@
+2026-09-10 10:00:01 [INFO] Sistema iniciado com sucesso.
+2026-09-10 10:02:15 [ERROR] Falha ao conectar ao banco de dados.
+2026-09-10 10:05:00 [WARNING] Uso de memoria acima de 80%.
+2026-09-10 10:12:43 [error] Timeout na requisicao da API.
+2026-09-10 10:15:30 [INFO] Usuario admin fez login.
+2026-09-10 10:20:11 [ERROR] Erro ao salvar arquivo no disco.
+2026-09-10 10:25:00 [INFO] Backup concluido.
