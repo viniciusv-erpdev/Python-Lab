@@ -1,0 +1,36 @@
+# 📋 Mini Projeto: Gerenciador de Tarefas em Linha de Comando (CLI)
+
+## 📌 Objetivo
+Desenvolver uma aplicação modular em Python para gerenciar tarefas diárias via terminal, aplicando conceitos fundamentais da linguagem e garantindo a persistência dos dados em arquivo.
+
+---
+
+## 🛠️ Requisitos Técnicos
+
+### 1. Estrutura de Dados
+* Representar cada tarefa como um dicionário contendo as chaves: `id`, `descricao`, `prioridade` e `status`.
+* Armazenar o conjunto de tarefas em uma lista na memória durante a execução.
+
+### 2. Persistência em Arquivo
+* Implementar o salvamento e a leitura dos dados em um arquivo local (`.csv` ou `.json`).
+* Garantir o carregamento automático do histórico ao iniciar a aplicação.
+* Criar o arquivo automaticamente caso ele ainda não exista.
+
+### 3. Arquitetura Modular
+* **`gerenciador.py` (Backend):** Concentra as funções de leitura/escrita de arquivos, manipulação da lista de tarefas e regras de negócio.
+* **`main.py` (CLI):** Responsável apenas pelo menu interativo, leitura de dados informados pelo usuário e exibição de mensagens no terminal.
+
+---
+
+## 🚀 Funcionalidades Obrigatórias
+
+* **Cadastrar:** Adicionar uma nova tarefa informando descrição e prioridade (*Alta*, *Média*, *Baixa*).
+* **Listar:** Exibir todas as tarefas cadastradas com seus respectivos status (*Pendente* / *Concluída*).
+* **Concluir:** Alterar o status de uma tarefa específica informando seu `id`.
+* **Filtrar:** Exibir apenas tarefas de uma determinada prioridade ou status.
+
+---
+
+## ✅ Critério de Conclusão
+
+O projeto estará concluído quando for possível fechar o terminal, reabri-lo e encontrar todas as tarefas cadastradas e atualizadas preservadas no arquivo local.
