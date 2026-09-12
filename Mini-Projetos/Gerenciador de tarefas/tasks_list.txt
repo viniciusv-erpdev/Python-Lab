@@ -1,1 +1,6 @@
-dict_values([['asdfasdf', 'asdf', 'asdfasdfasdf']])
+0, ['asdf', 'asdf', 'asdf']
+1, ['ajskdfj', 'asdfasdf', 'asfasdfasdf']
+2, ['aaasdf', 'asdf', 'asdf']
+3, ['asdf', 'asdf', 'asdf']
+4, ['teste', 'teste', 'teste']
+5, ['vinas', 'vinas', 'vinas']
