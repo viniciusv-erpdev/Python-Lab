@@ -1,0 +1,8 @@
+2026-09-21 08:00:00 INFO Sistema iniciado
+2026-09-21 08:01:03 INFO Usuario autenticado
+2026-09-21 08:02:30 INFO Nova tentativa de conexao
+2026-09-21 08:03:18 INFO Arquivo sinistros.csv recebido
+2026-09-21 08:04:01 INFO Processamento iniciado
+2026-09-21 08:05:10 INFO Registros validos importados
+2026-09-21 08:06:19 INFO Consulta a API concluida
+2026-09-21 08:07:20 INFO Operacao encerrada

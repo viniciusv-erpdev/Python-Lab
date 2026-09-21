@@ -1,0 +1,20 @@
+2026-09-21 08:00:00 INFO Sistema iniciado
+2026-09-21 08:00:12 DEBUG Configuracao carregada
+2026-09-21 08:01:03 INFO Usuario autenticado
+2026-09-21 08:01:25 WARNING Arquivo CSV com colunas extras
+2026-09-21 08:02:11 ERROR Falha na conexao com banco de dados
+2026-09-21 08:02:30 INFO Nova tentativa de conexao
+2026-09-21 08:03:02 DEBUG Consulta SQL preparada
+2026-09-21 08:03:18 INFO Arquivo sinistros.csv recebido
+2026-09-21 08:03:45 WARNING Coordenadas ausentes em um registro
+2026-09-21 08:04:01 INFO Processamento iniciado
+2026-09-21 08:04:22 DEBUG Validacao de campos concluida
+2026-09-21 08:04:56 ERROR Linha invalida no arquivo CSV
+2026-09-21 08:05:10 INFO Registros validos importados
+2026-09-21 08:05:40 ERROR Timeout na API Overpass
+2026-09-21 08:06:00 WARNING Tentando novamente a consulta
+2026-09-21 08:06:19 INFO Consulta a API concluida
+2026-09-21 08:06:41 DEBUG Resultado armazenado em cache
+2026-09-21 08:07:03 ERROR Permissao negada ao salvar relatorio
+2026-09-21 08:07:20 INFO Operacao encerrada
+2026-09-21 08:07:35 DEBUG Recursos liberados
