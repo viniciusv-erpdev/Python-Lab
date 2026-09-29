@@ -1,10 +1,20 @@
 # Imports
 import os
 from pathlib import Path
+import json
 
-# Variáveis
-task_dict = dict()
-file_path = "tasks_list.txt"
+output_file = 'tasks_list.json'
+
+def create_file(file_name):
+
+    '''Cria um novo arquivo 'tasks_list.txt' se ele não existir 
+    
+    Args: 
+        file_name: string - nome do arquivo'''
+
+    if Path(file_name).exists() == False:
+        Path(file_name).touch()
+        print(f'Arquivo criado com sucesso! \n')
 
 def receive_data(description, priority, status):
     """Recebe os dados das tarefas pelos usuários.
@@ -18,82 +28,53 @@ def receive_data(description, priority, status):
         status: string - status da tarefa
 
     Returns:
-        A lista de dados inseridos pelo usuário"""
+       A lista com os dados inseridos pelo usuário"""
 
+    task_dict = {}
     task_list = []
 
-    task_list.append(description)
-    task_list.append(priority)
-    task_list.append(status)
-    
+    task_dict['descrição'] = description
+    task_dict['prioridade'] = priority
+    task_dict['status'] = status
+
+    task_list.append(task_dict)
+
     return task_list
 
-def create_file(file_name):
+def read_file(file_name):
 
-    '''Cria um novo arquivo 'tasks_list.txt' se ele não existir '''
-
-    if Path(file_name).exists() == False:
-        Path(file_name).touch
-        print(f'Arquivo criado com sucesso! \n')
-
-
-def create_task_dict(file_name, task_list):
-    """Cria um dicionário com os dados recebidos do usuário.
-
-    Recebe a lista de tarefas do usuário e associa com um id no dicionário
+    file_task_list = []
     
-    Args:
-        file_name: nome do arquivo
-        task_dict: dicionário a ser criado
+    if os.path.getsize(file_name) == 0:
+        return file_task_list
 
-    Returns:
-        O dicinário de tarefas"""
+    with open(file_name, 'r', encoding='utf-8') as file:
 
-    id = 0
+        for line in file:
 
-    if Path('tasks_list.txt').exists():
+            file_task_list.append(line.strip('\n'))
+
+    return file_task_list
+
+def record_file(file_name, task_list):
+
+    create_file(output_file)
+
+    with open(file_name, 'r+', encoding='utf-8') as file:
+
+        for task in tasks_list:
+            json.dump(task_list, file, indent=2, ensure_ascii=False)
+
+
+#!!! Testes backend
+create_file(output_file)
+
+tasks_list = receive_data('teste', 'teste', 'teste')
+
+record_file(output_file, tasks_list)        
+
+print(read_file(output_file))
         
-        with open(file_name, 'r', encoding='utf-8') as f:
-
-            # Caso o arquivo esteja vazio
-            if os.path.isfile(file_path) and os.path.getsize(file_path) == 0:
-                id = 0
-
-            for line in f:
-
-                id += 1
-
-    else:
-
-        print("Erro o arquivo tasks_list.txt não foi encontrado")
-
-    task_dict[id] = task_list
 
 
-    print(f'dicionário: {task_dict=}')
     
-    return task_dict
-
-def update_file(file_name, task_dict):
-
-    """Adiciona linhas a um arquivo com base no dicionário de dados.
-
-    Recebe o nome do arquivo e o dicionário e escreve um arquivo
-    com os dados do dicionário
-    
-    Args:
-        file_name: Nome do arquivo
-        task_dict: Dicionário de tarefas"""
-
-    with open(file_name, 'a', encoding='utf-8') as file:
-
-        for id, item in task_dict.items():
-
-            # Caso o arquivo esteja vazio
-            if os.path.isfile(file_path) and os.path.getsize(file_path) == 0:
-                file.write(f'{id}, {item}')
-
-            if os.path.isfile(file_path) and os.path.getsize(file_path) != 0:
-                file.write(f'\n{id}, {item}')
-
-    pass
