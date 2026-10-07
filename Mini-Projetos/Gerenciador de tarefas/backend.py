@@ -73,10 +73,11 @@ def generate_full_list(file_name, new_data_list):
 
     Returns:
        uma lista unificada com todos os dados"""
-    existing_data = read_file(file_name)
-    iteration_data = new_data_list
 
-    full_list = existing_data + iteration_data
+    
+    existing_data = read_file(file_name)
+
+    full_list = existing_data + new_data_list
 
     return full_list
 
@@ -117,8 +118,6 @@ def record_file(file_name, task_list):
 
 def update_task(task_id, complete_task_list):
 
-    altered_task_list = []
-
     for task_dict in complete_task_list:
 
         if task_dict['id'] == task_id:
@@ -131,16 +130,9 @@ def update_task(task_id, complete_task_list):
             task_dict['prioridade'] = input_priority
             task_dict['status'] = input_status
 
-            altered_task_list.append(task_dict)
-
             break
 
-
-    aux_full_list = generate_full_list(output_file, altered_task_list)
-
-    deleted_list = delete_task(task_id, aux_full_list)
-
-    record_file(output_file, deleted_list)
+    return complete_task_list
 
 def delete_task(task_id, complete_task_list):
 
@@ -151,8 +143,6 @@ def delete_task(task_id, complete_task_list):
             complete_task_list.remove(task_dict)
 
             break
-
-    record_file(output_file, complete_task_list)
 
     return complete_task_list
 
@@ -166,4 +156,7 @@ complete_task_list = generate_full_list(output_file, new_tasks_list)
 
 record_file(output_file, complete_task_list)
 
-update_task(0, complete_task_list)
+new_list = update_task(0, complete_task_list)
+print(new_list)
+
+record_file(output_file, new_list)
